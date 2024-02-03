@@ -17,7 +17,7 @@ const EarthObject = () => {
 
   // Load texture
   const textureLoader = new THREE.TextureLoader();
-  const earthTexture = textureLoader.load("/src/components/canvas/textures/earth.jpg");
+  const earthTexture = textureLoader.load("./assets/earth.jpg");
 
   // Create material with texture
   const earthMaterial = new THREE.MeshStandardMaterial({ map: earthTexture });
