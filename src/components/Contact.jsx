@@ -35,14 +35,16 @@ const Contact = () => {
     setLoading(true);
 
     emailjs
-      .send('service_mqyfj1r','template_mr2kzin',
+      .send('service_mqyfj1r',
+      'template_mr2kzin',
         {
           from_name: form.name,
           to_name: "andré silva",
           from_email: form.email,
           to_email: "andre.emidio09@gmail.com",
           message: form.message,
-        },'ernEFj-iVufXzHduC'
+        },
+        'ernEFj-iVufXzHduC'
       )
       .then(
         () => {
