@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
@@ -23,13 +23,14 @@ const scatterParticles = (particleCount, radius) => {
 
 const ParticleSphere = ({ particleCount, particleSize, radius }) => {
   const particles = scatterParticles(particleCount, radius);
+  const [rotation, setRotation] = useState(0);
 
   return (
     <>
       {particles.map((position, index) => (
-        <mesh key={index} position={position}>
+        <mesh rotation={[rotation, 2, 2]} key={index} position={position}>
           <sphereGeometry args={[particleSize, 24, 24]} />
-          <meshStandardMaterial color="#00ff41" />
+          <meshStandardMaterial color="#FF0000" />
         </mesh>
       ))}
     </>
@@ -37,7 +38,7 @@ const ParticleSphere = ({ particleCount, particleSize, radius }) => {
 };
 
 const Earth2 = () => {
-  const particleCount = 5000;
+  const particleCount = 5500;
   const particleSize = 0.0025;
   const radius = 2;
 
