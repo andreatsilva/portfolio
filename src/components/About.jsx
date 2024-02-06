@@ -48,6 +48,7 @@ const About = () => {
       backSpeed: 20, // Backspacing speed in milliseconds
       loop: false, // Whether to loop the animation
       showCursor: false, // Hide the typing cursor
+      startDelay: 0,
     });
 
     // Cleanup function to destroy Typed instance
@@ -65,13 +66,7 @@ const About = () => {
 
       {/* Text container for Typed.js */}
       <div id="typed" className="typed-text mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]">
-      I'm a software developer with experience in languages like C++, Python, and JavaScript. I've utilized libraries such as OpenGL and Three.js to 
-      create compelling graphics and immersive 3D visuals.
-      In web design, I turn to Tailwind CSS for crafting engaging and responsive layouts, while 
-      leveraging React.js to build dynamic user interfaces.
-      My approach to development is driven by a passion for continuous 
-      learning and growth. I thrive on challenges and embrace every opportunity 
-      to expand my skill set. I consider myself a quick learner, always eager to dive into new technologies and enhance my proficiency. This dedication to learning enables me to deliver impactful software solutions that captivate users and meet their evolving needs effectively.
+      
 </div>
     </>
   );
