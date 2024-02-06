@@ -5,8 +5,19 @@ import { ComputersCanvas } from "./canvas";
 import { StarsCanvas } from "./";
 import { EarthCanvas } from "./canvas";
 import { Earth2 } from "./canvas";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [isTextVisible, setIsTextVisible] = useState(false);
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setIsTextVisible(true);
+    }, 3500);
+    return () => clearTimeout(delay);
+  }, []);
+
+
   return (
     <section className={`relative w-full h-screen mx-auto `}>
     
@@ -21,6 +32,13 @@ const Hero = () => {
         </div>
 
         <div>
+
+        {isTextVisible && (
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 3 }}
+          > 
         <p className={`${styles.heroSubText} mt-2 text-white-100`}>
         ｛ Portfolio ｝ <br className='fadeInLeft sm:block hidden' />
        
@@ -35,8 +53,13 @@ const Hero = () => {
        
           </p>
           </div>
+          </motion.div>
+            )}
         </div>
+       
       </div>
+      
+    
      
      
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>

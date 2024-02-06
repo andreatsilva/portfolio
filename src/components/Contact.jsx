@@ -10,6 +10,7 @@ import { Earth2 } from "./canvas";
 
 
 
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -128,7 +129,7 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
       >
-        <Earth2 />
+       <Earth2/>
       </motion.div>
     </div>
   );

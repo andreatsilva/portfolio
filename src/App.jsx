@@ -47,6 +47,7 @@ const App = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [circleSize, setCircleSize] = useState(65); 
 
+ 
 
   const handleLinkHover = () => {
     setIsHovered(true);
@@ -86,8 +87,8 @@ const App = () => {
        
        
         <div className='relative z-0'>
-          <Contact />
-     
+          <Contact /> 
+      
         </div>
       </div>
     </BrowserRouter>
