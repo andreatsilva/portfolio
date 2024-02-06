@@ -44,7 +44,7 @@ const About = () => {
       strings: [
         "I'm a software developer who has gained valuable experience working with languages like C++, Python, and JavaScript. I've also delved into libraries such as OpenGL and Three.js, using them to craft impressive graphics and 3D visuals. In the realm of web design, I rely on Tailwind CSS to create responsive layouts and React.js to develop dynamic user interfaces. My approach to development is fueled by a relentless drive to expand my knowledge base. I thrive on learning and am constantly seeking out new technologies to master. I pride myself on being a fast learner, always eager to explore and delve into the latest tools and techniques. This hunger for knowledge fuels my ability to deliver impactful software solutions that meet the needs of users effectively.",
       ],
-      typeSpeed: 30, // Typing speed in milliseconds
+      typeSpeed: 50, // Typing speed in milliseconds
       backSpeed: 20, // Backspacing speed in milliseconds
       loop: false, // Whether to loop the animation
       showCursor: false, // Hide the typing cursor
