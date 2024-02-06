@@ -143,7 +143,7 @@ const experiences = [
   {
     title: "Web Developer",
     company_name: "Freelancer",
-    icon: shopify,
+    icon: python,
     iconBg: "#383E56",
     date: "Jan 2022 - Jan 2023",
     points: [
@@ -156,7 +156,7 @@ const experiences = [
   {
     title: "IT Technician",
     company_name: "Strong Answer",
-    icon: shopify,
+    icon: tailwind,
     iconBg: "#383E56",
     date: "Sep 2019 - Sep 2021",
     points: [

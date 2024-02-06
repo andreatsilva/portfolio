@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
+import MatrixRainingCode from './components/matrixgenator';
 
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
@@ -70,8 +71,8 @@ const App = () => {
   return (
     
     <BrowserRouter>
-     
-      <div className='relative z-0 bg-black'>
+      <MatrixRainingCode className="absolute inset-0" />
+      <div className='relative z-0'>
 
         <div className='pattern-zigzag-3d pattern-blue-500 pattern-bg-white pattern-size-6 pattern-opacity-20'>
           <Navbar onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave} />
@@ -86,7 +87,7 @@ const App = () => {
        
         <div className='relative z-0'>
           <Contact />
-          <StarsCanvas />
+     
         </div>
       </div>
     </BrowserRouter>
