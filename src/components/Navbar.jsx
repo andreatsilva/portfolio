@@ -41,8 +41,8 @@ const Navbar = () => {
       initial={{ y: -100 }} // Initial position above the viewport
       animate={{ y: isNavbarVisible ? 0 : -100 }} // Slide down if isNavbarVisible is true, otherwise stay above the viewport
       transition={{ duration: 3 }} // Transition duration
-      className={`${styles.paddingX} w-full flex items-center  fixed top-0 z-20 ${
-        scrolled ? "bg-[#0d0208] opacity-70" : "bg-transparent"
+      className={`${styles.paddingX} w-full flex items-center  fixed top-8 z-20 ${
+        scrolled ? " opacity-100" : "bg-transparent"
       }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
@@ -64,7 +64,7 @@ const Navbar = () => {
               key={nav.id}
               className={`${
                 active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+              } hover:text-white text-[18px] font-medium cursor-pointer border-2 rounded-lg p-1`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>

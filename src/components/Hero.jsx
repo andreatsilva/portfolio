@@ -18,19 +18,27 @@ const Hero = () => {
   }, []);
 
 
-  return (
-    <section className={`relative w-full h-screen mx-auto `}>
-    
- 
-    
-     
-      <div
-        className={` pointer-events-none absolute inset-0 top-[200px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5 justify-center text-center`}
-      >
-        <div className='  flex flex-col justify-center items-center mt-5 gap-y-5'>
-         
-        </div>
 
+
+
+  const [TypedTittle, setspeed] = useState ("");
+  const fullltitle = "Andrew Silva"
+
+  useEffect(() => {
+    const Titint = setInterval(() => {
+      if (TypedTittle.length < fullltitle.length)  {
+        setspeed(fullltitle.substring(0, TypedTittle.length + 1));
+
+      } else {
+        clearInterval(Titint)
+      }
+    }, 20);
+    return () => clearInterval(Titint); 
+  }, [TypedTittle], [fullltitle]);
+
+  return (
+    <section className={`relative w-full h-screen mx-auto  `}> 
+      <div className={` pointer-events-none absolute inset-0 top-[350px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5 justify-center text-center`}>
         <div>
 
         {isTextVisible && (
