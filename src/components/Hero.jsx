@@ -17,10 +17,6 @@ const Hero = () => {
     return () => clearTimeout(delay);
   }, []);
 
-
-
-
-
   const [TypedTittle, setspeed] = useState ("");
   const fullltitle = "Andrew Silva"
 

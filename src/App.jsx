@@ -23,6 +23,9 @@ function Circle({isHovered, circleSize} ) {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+
+  
   return (
     <div
     className="circle"
@@ -72,8 +75,9 @@ const App = () => {
   return (
     
     <BrowserRouter>
+    
       <MatrixRainingCode className="absolute inset-0" />
-      <div className='relative z-0'>
+      <div className='relative'>
 
         <div className='pattern-zigzag-3d pattern-blue-500 pattern-bg-white pattern-size-6 pattern-opacity-20'>
           <Navbar onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave} />

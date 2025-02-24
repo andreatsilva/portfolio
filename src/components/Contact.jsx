@@ -8,6 +8,7 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import { Earth2 } from "./canvas";
 
+import { ComputersCanvas } from "./canvas";
 
 
 
@@ -72,7 +73,7 @@ const Contact = () => {
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-[#0d0208] p-8 rounded-2xl'
+        className='flex-[0.75] rgba(7, 6, 10, 0.7) p-8 rounded-2xl'
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -129,7 +130,7 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
       >
- 
+       <ComputersCanvas/>
       </motion.div>
     </div>
   );
