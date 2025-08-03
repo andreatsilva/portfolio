@@ -4,6 +4,16 @@ module.exports = {
   mode: "jit",
   theme: {
     extend: {
+      keyframes: {
+  slowRotate: {
+    from: { transform: 'rotate(0deg)' },
+    to: { transform: 'rotate(360deg)' },
+  },
+},
+animation: {
+  'slow-rotate': 'slowRotate 40s linear infinite',
+},
+
       colors: {
         primary: "#050816",
         secondary: "#aaa6c3",
@@ -24,4 +34,6 @@ module.exports = {
     },
   },
   plugins: [],
+
+  
 };

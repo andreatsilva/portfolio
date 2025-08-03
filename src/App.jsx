@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
-import MatrixRainingCode from './components/matrixgenator';
+
 
 
 import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
@@ -76,7 +76,7 @@ const App = () => {
     
     <BrowserRouter>
     
-      <MatrixRainingCode className="absolute inset-0" />
+      
       <div className='relative'>
 
         <div className='pattern-zigzag-3d pattern-blue-500 pattern-bg-white pattern-size-6 pattern-opacity-20'>
@@ -85,10 +85,9 @@ const App = () => {
           <Circle isHovered={isHovered} circleSize={circleSize} position={mousePosition} />
         </div>
         <About />
-        <Tech />
+
         <Experience />
-        
-       
+        <Tech />
        
         <div className='relative z-0'>
           <Contact /> 

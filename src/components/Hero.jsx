@@ -13,7 +13,7 @@ const Hero = () => {
   useEffect(() => {
     const delay = setTimeout(() => {
       setIsTextVisible(true);
-    }, 3500);
+    }, 500);
     return () => clearTimeout(delay);
   }, []);
 
@@ -41,7 +41,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 1 }}
           > 
         <p className={`${styles.heroSubText} mt-2 text-white-100`}>
         ｛ Portfolio ｝ <br className='fadeInLeft sm:block hidden' />

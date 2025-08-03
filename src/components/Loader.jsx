@@ -1,6 +1,8 @@
 import { Html, useProgress } from "@react-three/drei";
+import React from "react";
 
-const CanvasLoader = () => {
+// Memoize CanvasLoader to avoid unnecessary re-renders
+const CanvasLoader = React.memo(() => {
   const { progress } = useProgress();
   return (
     <Html
@@ -11,6 +13,7 @@ const CanvasLoader = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        willChange: "transform", // Hint for better performance
       }}
     >
       <span className='canvas-loader'></span>
@@ -26,6 +29,6 @@ const CanvasLoader = () => {
       </p>
     </Html>
   );
-};
+});
 
 export default CanvasLoader;

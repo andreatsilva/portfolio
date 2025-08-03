@@ -1,110 +1,116 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion"; // Import motion from framer-motion for animations
-
-import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(false); // State to control visibility of the Navbar
+  const [menuVisible, setMenuVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
+      if (window.scrollY > 100) {
+        setMenuVisible(false);
         setScrolled(true);
       } else {
+        setMenuVisible(true);
         setScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Simulating a delay of 2 seconds before showing the Navbar
-    const delay = setTimeout(() => {
-      setIsNavbarVisible(true);
-    }, 3500);
-
-    return () => clearTimeout(delay);
-  }, []);
-
-  return (
-    <motion.nav // Wrap the navbar in a motion component
-      initial={{ y: -100 }} // Initial position above the viewport
-      animate={{ y: isNavbarVisible ? 0 : -100 }} // Slide down if isNavbarVisible is true, otherwise stay above the viewport
-      transition={{ duration: 3 }} // Transition duration
-      className={`${styles.paddingX} w-full flex items-center  fixed top-8 z-20 ${
-        scrolled ? " opacity-100" : "bg-transparent"
-      }`}
+  // Hamburger icon with 4 lines, each smaller than the previous
+  const HamburgerIcon = ({ open, onClick }) => (
+    <button
+      className="flex flex-col items-end justify-center gap-1 w-8 h-8 focus:outline-none"
+      aria-label="Open menu"
+      onClick={onClick}
     >
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
+      <span
+        className={`block bg-white rounded transition-all duration-700 ease-in-out ${
+          open ? "w-8 opacity-70" : "w-8 opacity-100"
+        } h-1`}
+      />
+      <span
+        className={`block bg-white rounded transition-all duration-700 ease-in-out ${
+          open ? "w-6 opacity-60" : "w-6 opacity-100"
+        } h-1`}
+      />
+      <span
+        className={`block bg-white rounded transition-all duration-700 ease-in-out ${
+          open ? "w-4 opacity-50" : "w-4 opacity-100"
+        } h-1`}
+      />
+      <span
+        className={`block bg-white rounded transition-all duration-700 ease-in-out ${
+          open ? "w-2 opacity-40" : "w-2 opacity-100"
+        } h-1`}
+      />
+    </button>
+  );
+
+  // When hamburger is clicked, show menu again
+  const handleHamburgerClick = () => {
+    setMenuVisible(true);
+  };
+
+  // When menu is visible, show menu; when not, show hamburger
+  return (
+    <nav
+      className={`
+        fixed top-0 left-0 w-full z-30 flex flex-col items-center
+        transition-all duration-700
+        py-4
+        h-auto
+      `}
+      style={{ background: "transparent" }}
+    >
+      <div className="flex flex-col items-center w-full relative">
+        {/* Menu slides in/out */}
+        <ul
+          className={`
+            flex flex-row gap-8 items-center justify-end text-right w-full
+            transition-all duration-700
+            ${
+              menuVisible
+                ? "opacity-100 translate-y-0 pointer-events-auto"
+                : "opacity-0 -translate-y-8 pointer-events-none"
+            }
+          `}
+          style={{
+            transitionProperty: "opacity, transform",
           }}
         >
-         
-          <p className="italic text-[#003b00] text-[38px] font-bold cursor-pointer flex">S</p>
-        </Link>
-
-        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer border-2 rounded-lg p-1`}
+              className={`cursor-pointer text-white text-lg font-semibold px-2 py-1 rounded transition-colors duration-200 ${
+                active === nav.title ? "bg-white/20" : "hover:bg-white/10"
+              }`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
           ))}
         </ul>
-
-        <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[28px] h-[28px] object-contain"
-            onClick={() => setToggle(!toggle)}
-          />
-
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
-          >
-            <ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Hamburger fades in/out */}
+        <div
+          className={`
+            absolute top-0 right-8 flex items-center justify-center
+            transition-all duration-700
+            ${
+              !menuVisible
+                ? "opacity-100 pointer-events-auto mt-2"
+                : "opacity-0 pointer-events-none"
+            }
+          `}
+          style={{ height: "48px" }}
+        >
+          <HamburgerIcon open={!menuVisible} onClick={handleHamburgerClick} />
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

@@ -12,17 +12,18 @@ import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 
-const ExperienceCard = ({ experience }) => {
+// Move styles to constants to avoid recreating objects on each render
+const contentStyle = {
+  background: "rgba(7, 6, 10, 0.7)",
+  color: "#fff",
+};
+const contentArrowStyle = { borderRight: "7px solid rgb(1, 3, 12)" };
+
+const ExperienceCard = React.memo(({ experience }) => {
   return (
     <VerticalTimelineElement
-      contentStyle={{
-        background: "rgb(7, 6, 10, 0.7)",
-        color: "#fff",
-   
-
-      }}
-      contentArrowStyle={{ borderRight: "7px solid rgb(1, 3, 12)" }}
-      
+      contentStyle={contentStyle}
+      contentArrowStyle={contentArrowStyle}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
       icon={
@@ -31,6 +32,8 @@ const ExperienceCard = ({ experience }) => {
             src={experience.icon}
             alt={experience.company_name}
             className='w-[60%] h-[60%] object-contain'
+            loading="lazy"
+            decoding="async"
           />
         </div>
       }
@@ -46,9 +49,9 @@ const ExperienceCard = ({ experience }) => {
       </div>
 
       <ul className='mt-5 list-disc ml-5 space-y-2'>
-        {experience.points.map((point, index) => (
+        {experience.points.map((point, idx) => (
           <li
-            key={`experience-point-${index}`}
+            key={`experience-point-${experience.company_name}-${idx}`}
             className='text-white-100 text-[14px] pl-1 tracking-wider'
           >
             {point}
@@ -57,7 +60,7 @@ const ExperienceCard = ({ experience }) => {
       </ul>
     </VerticalTimelineElement>
   );
-};
+});
 
 const Experience = () => {
   return (
@@ -75,7 +78,7 @@ const Experience = () => {
         <VerticalTimeline>
           {experiences.map((experience, index) => (
             <ExperienceCard
-              key={`experience-${index}`}
+              key={`experience-${experience.company_name}-${index}`}
               experience={experience}
             />
           ))}

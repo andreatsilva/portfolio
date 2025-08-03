@@ -35,34 +35,46 @@ import {
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    title: "1. About",
   },
   {
     id: "work",
-    title: "Work",
+    title: "2. Work",
   },
   {
     id: "contact",
-    title: "Contact",
+    title: "3. Contact",
   },
+  {
+    id: "tech",
+    title: "4. Tech",
+  },
+  {
+    id: "services",
+    title: "5. Services",
+  },
+  {
+    id: "projects",
+    title: "6. Projects",
+  }
 ];
 
 const services = [
   {
-    title: "Eat",
-    icon: web,
-  },
-  {
-    title: "Sleep",
+    title: "Project 1",
     icon: mobile,
   },
   {
-    title: "Program",
+    title: "Project 2",
+    icon: mobile,
+  },
+  {
+    title: "Project 3",
     icon: backend,
   },
   {
-    title: "Repeat",
-    icon: creator,
+    title: "Project 4",
+    icon: mobile,
   },
 ];
 
@@ -125,6 +137,17 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "Base2 Lenovo",
+    company_name: "Lenovo Qualified PC Service Technician",
+    icon: reactl,
+    iconBg: "#383E56",
+    date: "Nov 2024 - Present",
+    points: [
+      "Provided technical support and troubleshooting for Lenovo PC products, ensuring customer satisfaction.",
+      "Diagnosed hardware and software issues, performed repairs, and conducted system upgrades.",
+    ],
+  },
   {
     title: "Javali",
     company_name: "Drupal 9 Programmer",
