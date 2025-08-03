@@ -3296,7 +3296,7 @@ No matching component was found for:
         py-4
         h-auto
       `,style:{background:"transparent"},children:vt("div",{className:"flex flex-col items-center w-full relative",children:[xe("ul",{className:`
-            flex flex-row gap-8 items-center justify-center text-center w-full
+            flex flex-row gap-8 items-center justify-end text-right w-full
             transition-all duration-700
             ${r?"opacity-100 translate-y-0 pointer-events-auto":"opacity-0 -translate-y-8 pointer-events-none"}
           `,style:{transitionProperty:"opacity, transform"},children:Eq.map(l=>xe("li",{className:`cursor-pointer text-white text-lg font-semibold px-2 py-1 rounded transition-colors duration-200 ${n===l.title?"bg-white/20":"hover:bg-white/10"}`,onClick:()=>e(l.title),children:xe("a",{href:`#${l.id}`,children:l.title})},l.id))}),xe("div",{className:`
